@@ -1,1 +1,663 @@
 # My_Love
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story 💚</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #a8e6cf 0%, #7fd8be 25%, #56caa7 50%, #3eb489 75%, #26a65b 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts animation */
+        .hearts-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            animation: floatHeart 8s infinite ease-in-out;
+        }
+
+        .floating-heart:nth-child(1) { left: 10%; animation-delay: 0s; color: #ffd6d6; }
+        .floating-heart:nth-child(2) { left: 25%; animation-delay: 1.5s; color: #ffe6cc; }
+        .floating-heart:nth-child(3) { left: 40%; animation-delay: 3s; color: #fff5cc; }
+        .floating-heart:nth-child(4) { left: 55%; animation-delay: 0.5s; color: #e6f7ff; }
+        .floating-heart:nth-child(5) { left: 70%; animation-delay: 2s; color: #ffe6f0; }
+        .floating-heart:nth-child(6) { left: 85%; animation-delay: 2.5s; color: #ffd6d6; }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-20vh) rotate(360deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: #ffffff;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2),
+                         0 0 30px rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: #fff8e1;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heart-divider {
+            font-size: 3rem;
+            animation: pulse 2s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Timeline Section */
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .memory-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        .memory-card:nth-child(1) { animation-delay: 0.1s; }
+        .memory-card:nth-child(2) { animation-delay: 0.2s; }
+        .memory-card:nth-child(3) { animation-delay: 0.3s; }
+        .memory-card:nth-child(4) { animation-delay: 0.4s; }
+        .memory-card:nth-child(5) { animation-delay: 0.5s; }
+        .memory-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .memory-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(168, 230, 207, 0.3), rgba(86, 202, 167, 0.3));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            border-color: #56caa7;
+        }
+
+        .memory-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #26a65b;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .card-date {
+            font-weight: 600;
+            color: #3eb489;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-hint {
+            font-size: 0.9rem;
+            color: #7fd8be;
+            font-style: italic;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fff4 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+            border: 4px solid #a8e6cf;
+            animation: scaleIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-emoji {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .modal-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #26a65b;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(168, 230, 207, 0.3);
+        }
+
+        .modal-date {
+            font-weight: 600;
+            color: #3eb489;
+            font-size: 1.3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-description {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #2d5f4f;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .close-btn {
+            background: linear-gradient(135deg, #56caa7, #3eb489);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 2rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 8px 20px rgba(56, 180, 137, 0.3);
+            transition: all 0.3s;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .close-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(56, 180, 137, 0.4);
+        }
+
+        .close-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Special Message Box */
+        .special-message-container {
+            max-width: 700px;
+            margin: 4rem auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .special-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 240, 245, 0.95) 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 4px solid #ffd6d6;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out 0.7s backwards;
+        }
+
+        .special-box::before {
+            content: '♡';
+            position: absolute;
+            font-size: 20rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            opacity: 0.05;
+        }
+
+        .special-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+            border-color: #ff69b4;
+        }
+
+        .special-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            color: #ff69b4;
+            text-shadow: 2px 2px 8px rgba(255, 105, 180, 0.3);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-hint {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: #ff8fab;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-modal .modal-content {
+            background: linear-gradient(135deg, #fff5f8 0%, #ffe6f0 100%);
+            border: 4px solid #ffd6d6;
+            max-width: 800px;
+        }
+
+        .message-modal .modal-title {
+            color: #ff69b4;
+            font-size: 3rem;
+        }
+
+        .message-text {
+            font-size: 1.3rem;
+            line-height: 2.2;
+            color: #8b4789;
+            text-align: left;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            border-left: 5px solid #ff69b4;
+        }
+
+        .hearts-decoration {
+            text-align: center;
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 2rem;
+            }
+
+            .special-box {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts -->
+    <div class="hearts-container">
+        <div class="floating-heart">♥</div>
+        <div class="floating-heart">♥</div>
+        <div class="floating-heart">♥</div>
+        <div class="floating-heart">♥</div>
+        <div class="floating-heart">♥</div>
+        <div class="floating-heart">♥</div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>Our Beautiful Journey</h1>
+        <p class="subtitle">A Story Written Just For You</p>
+        <div class="heart-divider">♥</div>
+    </header>
+
+    <!-- Timeline Cards -->
+    <div class="timeline-container">
+        <h2 class="timeline-title">Our Special Moments</h2>
+        
+        <div class="cards-grid">
+            <!-- First Meet -->
+            <div class="memory-card" onclick="openModal('firstMeet')">
+                <span class="card-emoji">👁</span>
+                <h3 class="card-title">First Meet</h3>
+                <p class="card-date">November 28, 2022</p>
+                <p class="card-hint">Click to reveal the story</p>
+            </div>
+
+            <!-- First Talk -->
+            <div class="memory-card" onclick="openModal('firstTalk')">
+                <span class="card-emoji">💬</span>
+                <h3 class="card-title">First Talk</h3>
+                <p class="card-date">December 31, 2022</p>
+                <p class="card-hint">Click to reveal the story</p>
+            </div>
+
+            <!-- First Picture -->
+            <div class="memory-card" onclick="openModal('firstPic')">
+                <span class="card-emoji">📷</span>
+                <h3 class="card-title">First Picture</h3>
+                <p class="card-date">January 13, 2023</p>
+                <p class="card-hint">Click to reveal the story</p>
+            </div>
+
+            <!-- Her Proposal -->
+            <div class="memory-card" onclick="openModal('proposal')">
+                <span class="card-emoji">💌</span>
+                <h3 class="card-title">Her Proposal</h3>
+                <p class="card-date">April 5, 2023</p>
+                <p class="card-hint">Click to reveal the story</p>
+            </div>
+
+            <!-- His Confession -->
+            <div class="memory-card" onclick="openModal('confession')">
+                <span class="card-emoji">♥</span>
+                <h3 class="card-title">His "I Love You"</h3>
+                <p class="card-date">June 17, 2023</p>
+                <p class="card-hint">Click to reveal the story</p>
+            </div>
+
+            <!-- First Outing -->
+            <div class="memory-card" onclick="openModal('firstDate')">
+                <span class="card-emoji">🎬</span>
+                <h3 class="card-title">First Outing</h3>
+                <p class="card-date">June 23, 2023</p>
+                <p class="card-hint">Click to reveal the story</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Special Message Box -->
+    <div class="special-message-container">
+        <div class="special-box" onclick="openModal('specialMessage')">
+            <h2 class="special-title">To My Chakku ♡</h2>
+            <p class="special-hint">Click to read a special message just for you</p>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="firstMeet" class="modal">
+        <div class="modal-content">
+            <div class="modal-emoji">♥</div>
+            <h2 class="modal-title">First Meet</h2>
+            <p class="modal-date">November 28, 2022</p>
+            <p class="modal-description">
+                It was a regular day on the OBT bus, but for her, it became extraordinary. Among all the faces, she noticed him. He didn't notice her back, but something in her heart sparked that day. Little did they know, this would be the beginning of something beautiful.
+            </p>
+            <button class="close-btn" onclick="closeModal('firstMeet')">Close</button>
+        </div>
+    </div>
+
+    <div id="firstTalk" class="modal">
+        <div class="modal-content">
+            <div class="modal-emoji">♥</div>
+            <h2 class="modal-title">First Talk</h2>
+            <p class="modal-date">December 31, 2022</p>
+            <p class="modal-description">
+                On the last day of 2022, she gathered her courage and sent him a message on Instagram. It was about a silly lab coat measurement, but for her, it was so much more. As the class leader, she used this perfect excuse to finally talk to the boy she had noticed that day on the bus. A simple conversation that would change everything.
+            </p>
+            <button class="close-btn" onclick="closeModal('firstTalk')">Close</button>
+        </div>
+    </div>
+
+    <div id="firstPic" class="modal">
+        <div class="modal-content">
+            <div class="modal-emoji">♥</div>
+            <h2 class="modal-title">First Picture Together</h2>
+            <p class="modal-date">January 13, 2023</p>
+            <p class="modal-description">
+                Blue and blue - they wore matching costumes that day. She was bursting with excitement, her heart racing with joy. He was nervous but not as interested yet. They stood together for their first picture, two people in the same frame, unaware of how many more beautiful moments they would capture together in the years to come.
+            </p>
+            <button class="close-btn" onclick="closeModal('firstPic')">Close</button>
+        </div>
+    </div>
+
+    <div id="proposal" class="modal">
+        <div class="modal-content">
+            <div class="modal-emoji">♥</div>
+            <h2 class="modal-title">Her Proposal</h2>
+            <p class="modal-date">April 5, 2023</p>
+            <p class="modal-description">
+                With a heart full of feelings and trembling fingers, she typed out a long, beautiful paragraph on Instagram. She told him how she felt when she was around him, how he made her world brighter. It was her brave confession of love. But that day, he said no, and her heart broke a little. Yet, she didn't know that this was just the beginning of their real story.
+            </p>
+            <button class="close-btn" onclick="closeModal('proposal')">Close</button>
+        </div>
+    </div>
+
+    <div id="confession" class="modal">
+        <div class="modal-content">
+            <div class="modal-emoji">♥</div>
+            <h2 class="modal-title">His "I Love You"</h2>
+            <p class="modal-date">June 17, 2023</p>
+            <p class="modal-description">
+                Three simple words that changed everything - "I love you." He sent her that message, and she was on cloud nine. After waiting, hoping, and dreaming, he finally felt the same way. Her heart soared higher than it ever had before. The boy who once didn't notice her on the bus had now fallen for her completely. It was the happiest moment of her life.
+            </p>
+            <button class="close-btn" onclick="closeModal('confession')">Close</button>
+        </div>
+    </div>
+
+    <div id="firstDate" class="modal">
+        <div class="modal-content">
+            <div class="modal-emoji">♥</div>
+            <h2 class="modal-title">First Outing</h2>
+            <p class="modal-date">June 23, 2023</p>
+            <p class="modal-description">
+                Their first official date - a cute movie and a small lunch together. Everything felt magical. Sitting beside each other in the theater, sharing a meal, stealing glances, and smiling at each other. It wasn't just a date; it was a promise of many more beautiful days to come. This was the start of their forever.
+            </p>
+            <button class="close-btn" onclick="closeModal('firstDate')">Close</button>
+        </div>
+    </div>
+
+    <!-- Special Message Modal -->
+    <div id="specialMessage" class="modal message-modal">
+        <div class="modal-content">
+            <div class="modal-emoji">♡</div>
+            <h2 class="modal-title">To My Chakku</h2>
+            <div class="hearts-decoration">♥ ♥ ♥</div>
+            
+            <div class="message-text">
+                To my favorite person in the entire world,<br><br>
+                I wanted to make this space just for you, to remind you of how much you mean to me. I wake up every single day feeling like the luckiest girl alive just because I get to call you mine. I don't think words will ever be enough to explain the depth of my gratitude for you, but I'm going to spend the rest of our lives trying anyway.
+            </div>
+
+            <div class="message-text">
+                Looking back at the last 3 years we've spent together, my heart just feels so full. From the big milestones to the quiet moments on the couch, every second has been a treasure. These have been the happiest years of my life, and honestly, I've become so beautifully attached to you. You've seen me at my best and my worst, and you've stayed through it all. You are my safe haven and my greatest adventure, all wrapped into one.
+            </div>
+
+            <div class="message-text">
+                I want you to know that I love you more than anything in this universe. You aren't just my boyfriend; you're my best friend and my whole heart. I promise to keep being the 'clingy' girl who never wants to leave your side, because life is just so much better when I'm with you.
+            </div>
+
+            <div class="hearts-decoration">♥ Forever Yours ♥</div>
+            <div style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 1.8rem; margin-top: 2rem; color: #8b4789;">
+                With Love,<br>Tumkii ♡
+            </div>
+
+            <button class="close-btn" onclick="closeModal('specialMessage')">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
